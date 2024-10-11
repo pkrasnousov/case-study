@@ -1,0 +1,4 @@
+apiVersion: v2
+name: yarowa
+description: A Helm chart for deploying yarowa case study application
+version: 0.1.0

@@ -1,0 +1,6 @@
+releases:
+  - name: yarowa
+    namespace: app
+    chart: ../helmchart/yarowa
+    values:
+      - ../helmchart/yarowa/values.yaml

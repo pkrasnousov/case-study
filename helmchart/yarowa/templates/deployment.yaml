@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "yarowa.fullname" . }}
+  namespace: {{ .Values.namespace | default "default" }}
+  labels:
+    {{- include "yarowa.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "yarowa.labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "yarowa.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: yarowa
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: "5m"
+            memory: "50Mi"
+          limits:
+            cpu: "50m"
+            memory: "200Mi"

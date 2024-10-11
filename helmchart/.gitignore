@@ -1,0 +1,41 @@
+# Ignore Helm-related temporary and log files
+*.lock
+*.tgz
+*.log
+
+# Ignore Helm dependencies (if you use 'helm dependency build')
+charts/
+!charts/*.tgz
+
+# Ignore release metadata
+.release
+.releases.yaml
+
+# Ignore sensitive files
+secrets.yaml
+values-secret.yaml
+*.enc.yaml  # If using encrypted secrets files
+
+# Ignore Kubernetes-related configurations
+kubeconfig
+
+# Ignore Helm test output and debug files
+tests/_*  # If there are auto-generated test files
+unittest-xml-report.xml
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore editor-specific files
+.idea/
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# Ignore custom values overrides
+values-override.yaml
+
+# Ignore Git itself
+.git/

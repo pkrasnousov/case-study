@@ -1,0 +1,47 @@
+# Ignore Helmfile lock files and output
+helmfile.lock
+helmfile.*.lock
+helmfile.yaml.lock
+
+# Ignore rendered output and release metadata
+.releases.yaml
+*.rendered.yaml
+
+# Ignore temporary and log files
+*.log
+*.tmp
+*.bak
+
+# Ignore secrets and sensitive data
+secrets.yaml
+values-secret.yaml
+*.enc.yaml  # If using encrypted secrets files
+
+# Ignore state files
+state.json
+
+# Ignore diff output if you're using helm-diff
+*.diff
+
+# Ignore files in the helmfile.d directory
+helmfile.d/.state
+helmfile.d/.history
+
+# Ignore generated Helm charts and tgz packages
+charts/
+*.tgz
+
+# Ignore editor-specific files
+.idea/
+*.swp
+*.orig
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore custom values overrides
+values-override.yaml
+
+# Ignore Git itself
+.git/

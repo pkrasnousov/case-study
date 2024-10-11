@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "yarowa.fullname" . }}-test
+  namespace: {{ .Values.namespace | default "default" }}
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl
+      command: ['sh', '-c', 'curl -sfv http://{{ include "yarowa.fullname" . }}-service:5000']
+  restartPolicy: Never
